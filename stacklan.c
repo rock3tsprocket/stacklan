@@ -1,8 +1,12 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdint.h>
 
 #define STACK_SIZE 30000
+#define dbg() \
+    printf("Current instruction: %c, Stack: ", code[ip] == 10?'n':code[ip]); \
+    printf("{"); for (i=1; i <= 10; i++) { \
+        printf(" %d,", stack[i]); \
+    }; printf(" }\n");
 
 int main(int argc, char *argv[]) {
     /* Prepare variables */
@@ -11,6 +15,7 @@ int main(int argc, char *argv[]) {
     uint16_t sp = 0;
     int      ip = 0;
     int      filesize = 0;
+    uint16_t sp_2 = 0;
 
     /* i */
     int i = 0;
@@ -74,6 +79,15 @@ int main(int argc, char *argv[]) {
                 reg = stack[sp] - reg;
                 stack[sp] = stack[sp] - reg;
                 break;
+            case '?':
+                if (sp < 2) break;
+                sp_2 = (stack[sp-1] << 8 | stack[sp]) + 1;
+                stack[sp--] = 0; stack[sp--] = 0;
+
+                stack[sp] = stack[sp_2] + stack[sp];
+                stack[sp_2] = stack[sp] - stack[sp_2];
+                stack[sp] = stack[sp] - stack[sp_2];
+                break;
             case '.':
                 printf("%c", stack[sp]);
                 fflush(stdout);
@@ -97,7 +111,9 @@ int main(int argc, char *argv[]) {
                 }
                 break;
         }
-
+#ifdef DEBUG
+        dbg();
+#endif
         ip++;
     }
     puts("");
