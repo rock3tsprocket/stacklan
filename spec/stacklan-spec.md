@@ -1,4 +1,4 @@
-# The Stacklan specification (ver. 1.1, rev. 3)
+# The Stacklan specification (ver. 1.2)
 
 ## Overview
 Stacklan is a [Brainf\*\*k](https://en.wikipedia.org/wiki/Brainfuck)-inspired
@@ -19,8 +19,8 @@ A Stacklan interpreter must store programs separately from the stack, and
 a Stacklan program cannot access or modify its "instruction" memory.
 
 ## The commands
-Stacklan has 9 commands, mostly from Brainf\*\*k, with only one being unique
-to it (`!`). However, `>`, `<`, `+`, and `-`, have different purposes:
+Stacklan has 10 commands, mostly from Brainf\*\*k, with only two being unique
+to it (`!` and `?`). However, `>`, `<`, `+`, and `-`, have different purposes:
 
 `>`: Push 1 onto the stack. If the stack is full, the behaviour is unspecified.
 
@@ -39,6 +39,15 @@ the stack to perform this operation, treat the command as a no-op.
 
 `!`: Swap `reg` and the topmost value on the stack. If the stack is empty, set
 `reg` to 0.
+
+`?`: Pop the two (or more/less if necessary to one's implementation) topmost
+items off of the stack, combine them into a 16-bit integer (topmost item is
+the high byte, second topmost item is the low byte, one can also use a
+different sized integer if necessary), and use the result of that to address
+the item on the stack to swap with the then-third (now first) topmost item
+(stack indexing is zero-based) (for example: `{1, 2, 3, 0, 1}` -> `{1, 3, 2}`).
+If there aren't enough items on the stack, treat the command as a no-op.
+If the specified address is out of bounds, the behavior is unspecified.
 
 `,`: Get one byte of data from the environment's input (for example, `stdin` on
 a terminal), and push it onto the stack. If the stack is full, the behavior is
