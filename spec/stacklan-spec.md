@@ -1,4 +1,4 @@
-# The Stacklan specification (ver. 1.2)
+# The Stacklan specification (ver. 1.2, rev. 1)
 
 ## Overview
 Stacklan is a [Brainf\*\*k](https://en.wikipedia.org/wiki/Brainfuck)-inspired
@@ -45,7 +45,7 @@ items off of the stack, combine them into a 16-bit integer (topmost item is
 the high byte, second topmost item is the low byte, one can also use a
 different sized integer if necessary), and use the result of that to address
 the item on the stack to swap with the then-third (now first) topmost item
-(stack indexing is zero-based) (for example: `{1, 2, 3, 0, 1}` -> `{1, 3, 2}`).
+(stack indexing is zero-based) (for example: `{1, 2, 3, 1, 0}` -> `{1, 3, 2}`).
 If there aren't enough items on the stack, treat the command as a no-op.
 If the specified address is out of bounds, the behavior is unspecified.
 
