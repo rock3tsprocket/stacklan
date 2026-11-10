@@ -1,4 +1,4 @@
-# The Stacklan specification (ver. 1.2, rev. 2)
+# The Stacklan specification (ver. 1.2, rev. 3)
 
 ## Overview
 Stacklan is a [Brainf\*\*k](https://en.wikipedia.org/wiki/Brainfuck)-inspired
@@ -60,7 +60,7 @@ the stack is empty, output a null character (0).
 If the stack is empty, jump to the next matching `]`.
 
 `]`: If the topmost item on the stack is 0, jump to the previous matching `[`.
-If the stack is empty, jump to the next matching `]`.
+If the stack is empty, continue execution as normal.
 
 (If one does not understand `[` or `]`, which this specification probably did
 a bad job of explaining, refer to https://brainfuck.org/brainfuck.html)
