@@ -1,0 +1,26 @@
+[ Implementation of a looping counter in Stacklan that counts from 100 to 0
+  (https://esolangs.org/wiki/Looping_counter)
+  This was so painful to write ]
+
+[ Initialize item 0 on the stack ]
+>
+
+>>- [ Push '*' onto the stack ] <
+>>+>+>+>+>+>+[!>+>+>+>+>+>+!>-]!
+
+>>- [ Push 100 onto the stack ] <
+>>+>+>+>+>+>+>+>+>+>+[!>+>+>+>+>+>+>+>+>+!>-]>+!
+
+>>- [ Magic
+
+      The first part swaps the first item on the stack with the top item,
+      decrements it, then swaps the items back.
+
+      The second part copies the top item on the stack to the first item,
+      then prints the ASCII code that the second item contains ('*') until
+      the top item equals 0.
+
+      The third part pushes a line feed character (10) onto the stack, prints
+      it, then discards it, and then swaps the first item on the stack with
+      the top item.] <
+[ >>->>-?>->>->>-? [>-!>+>>->>-?>+>>->>-?!]![>-!<.>>-!]! >>+>+>+>+>+>+>+>+>+.< >>->>-? ]
