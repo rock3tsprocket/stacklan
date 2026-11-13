@@ -41,5 +41,9 @@ Examples:
 ## Language specification
 The spec can be found in the `spec/` directory.
 
-An example "Hello, world!" program and a program that counts from 1 to 10 can
-be found in the `examples/` directory.
+Example programs can be found in the [`examples/`](examples/) directory.
+
+## Copyright
+* This interpreter itself is licensed under the 3-clause BSD license (see [LICENSE.txt](LICENSE.txt))
+* The Stacklan specification is licensed under the CC-BY 4.0 license (see [spec/LICENSE.txt](spec/LICENSE.txt))
+* The example programs are licensed under the Unlicense (see [examples/UNLICENSE.txt](examples/UNLICENSE.txt))

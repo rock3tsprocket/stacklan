@@ -67,4 +67,4 @@ a bad job of explaining, refer to https://brainfuck.org/brainfuck.html)
 
 If any other character is encountered, it must be treated as a no-op.
 
-\- rock3tsprocket (rock-pie@hotmail.com)
+\- Copyright 2026 rock3tsprocket (rock[hyphen]pie[at]hotmail[dot]com)
