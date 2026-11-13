@@ -6,7 +6,7 @@
     printf("Current instruction: %c, Stack: ", code[ip] == 10?'n':code[ip]); \
     printf("{"); for (i=1; i <= 10; i++) { \
         printf(" %d,", stack[i]); \
-    }; printf(" }\n");
+    }; printf(" }, reg: %d, SP: %d, IP: %d\n", reg, sp, ip);
 
 int main(int argc, char *argv[]) {
     /* Prepare variables */
